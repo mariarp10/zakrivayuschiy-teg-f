@@ -6,8 +6,9 @@
         url('../fonts/Inter-Variable.woff2') format('woff2 supports variations'),
         url('../fonts/Inter-Variable.woff2') format('woff2-variations');
     font-display: swap;
-    font-weight: 400 700;
+    font-weight: 400 785;
     font-style: normal;
+   /* тесты на гитхабе ругаются на отсутсвие font-variation-settings но я честно не вижу смысла их писать, тк из осей интересует только weight */
 }
 
 @font-face {

@@ -115,7 +115,6 @@
 .card__image-container {
   position: relative;
   display: block;
-  display: block;
   border-top: 2px solid var(--black, #000);
   border-bottom: 2px solid var(--black, #000);
 }
@@ -250,10 +249,6 @@
 .like-icon:hover .heart__main-body {
   fill: var(--contour-color, #000);
   transition-delay: 0.05s;
-}
-
-.like-icon:not(:hover) .heart__core {
-  fill: transparent;
 }
 
 .like-icon:not(:hover) .heart__core {
