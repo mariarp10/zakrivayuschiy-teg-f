@@ -27,7 +27,8 @@ p {
 }
 
 .page {
-  min-inline-size: 320px;
+  /* в заготовке был размер 320px, но я исправила на 375, на 320 нет макета */
+  min-inline-size: 375px;
   min-block-size: 100dvb;
   font-family: var(--main-font, 'Inter Variable'), sans-serif;
   font-variation-settings: var(--text-weight, 400);
