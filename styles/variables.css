@@ -1,5 +1,11 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
+    --red: #FF0000;
+    --black: #000;
+    --white: #fff;
+    --background-gradient: repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
+                            repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+                            linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
     --main-font: 'Inter-Variable';
     --accent-font: 'Press Start 2P';
     --text-weight: 400;
@@ -10,10 +16,6 @@
     --adaptive-width: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
     --frame-padding: clamp(7.5rem, 6.923rem + 2.462vw, 8rem);
     --save-button-width: clamp(19.125rem, 18.487rem + 2.723vw, 20.938rem);
-    --background-gradient: repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
-                            repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
-                            linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
-    --contour-color: #000;
-    --sparks-color: #FF0000;
-                        
+    --contour-color: var(--black);
+    --sparks-color: var(--red);                      
 }

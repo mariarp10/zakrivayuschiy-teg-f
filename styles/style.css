@@ -32,34 +32,36 @@ p {
   min-block-size: 100dvb;
   font-family: var(--main-font, 'Inter Variable'), sans-serif;
   font-variation-settings: var(--text-weight, 400);
-  background-image: var(--background-gradient);
+  background-image: var(--background-gradient, 
+                        repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
+                        repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+                        linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%));
   background-size: cover;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-block-start: 100px;
-  padding-block-end: 100px;
+  padding-block: 100px;
 }
 
 .adaptive-width {
   max-width: 700px;
-  width: var(--adaptive-width);
+  width: var(--adaptive-width, clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem));
 }
 
 .header {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--white, #fff);
+  border: 2px solid var(--black, #000);
   align-items: center;
-  padding: var(--frame-padding) 0;
+  padding-block: var(--frame-padding, clamp(7.5rem, 6.923rem + 2.462vw, 8rem));
 }
 
 .logo {
   font-family: var(--accent-font, 'Press Start 2P'), sans-serif;
-  font-size: var(--header-title-font-size);
+  font-size: var(--header-title-font-size, clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem));
   line-height: 1;
   text-transform: uppercase;  
 }
@@ -69,35 +71,34 @@ p {
   font-weight: var(--text-weight, 400);
   text-transform: uppercase;
   line-height: 1;
-  font-size: var(--header-subtitle-font-size);
+  font-size: var(--header-subtitle-font-size, clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem));
 }
 
 .cards-list {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  margin-top: 100px;
+  margin-block-start: 100px;
 }
 
 .card {
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--white, #fff);
+  border: 2px solid var(--black, #000);
 }
 
 .card__title {
-  font-family: var(--main-font);
+  font-family: var(--main-font, 'Inter-Variable'), sans-serif;
   font-size: 18px;
-  font-weight: var(--card-title-weight);
+  font-weight: var(--card-title-weight, 400);
   line-height: 1.4;
-  padding-top: 3px;
-  padding-left: 10px;
-  padding-bottom: 3px;
+  padding-block: 3px;
+  padding-inline: 10px;
 }
 
-@supports (text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
+@supports (text-stroke: 1px var(--white, #fff)) or (-webkit-text-stroke: 1px var(--white, #fff)) {
   .card__image-label {
-    -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--white, #fff);
+    text-stroke: 1px var(--white, #fff);
     text-shadow: none;
   }
 }
@@ -105,8 +106,8 @@ p {
 .card__image-container {
   position: relative;
   display: block;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
+  border-top: 2px solid var(--black, #000);
+  border-bottom: 2px solid var(--black, #000);
 }
 
 .card__image {
@@ -128,7 +129,7 @@ p {
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, 'Press Start 2P'), sans-serif;
   font-size: 14px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.5);
@@ -171,9 +172,9 @@ p {
 .card__footer {
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding-block: 25px;
+  padding-inline: 25px;
   gap: 25px;
-
 }
 
 .card__footer--content {
@@ -185,7 +186,7 @@ p {
 .card__text {
   font-family: inherit;
   font-style: normal;
-  font-weight: var(--text-weight);
+  font-weight: var(--text-weight, 400);
   line-height: 1.17;
   font-size: 18px;
 }
@@ -205,7 +206,8 @@ p {
   justify-content: center;
   border: 2px solid transparent;
   background-color: transparent;
-  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 .heart__core,
@@ -215,7 +217,7 @@ p {
 }
 
 .heart__contour {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
 }
 
 .heart__sparks {
@@ -228,15 +230,15 @@ p {
 
 .card__icon-button:focus-visible {
   outline: none;
-  border-color: #000;
+  border-color: var(--black, #000);
 }
 
 .like-icon:hover .heart__core {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
 }
 
 .like-icon:hover .heart__main-body {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
   transition-delay: 0.05s;
 }
 
@@ -250,26 +252,26 @@ p {
 }
 
 .like-icon:active .heart__core {
-  fill: var(--sparks-color);
+  fill: var(--sparks-color, #FF0000);
 }
 
 .like-icon:active .heart__main-body {
-  fill: var(--sparks-color);
+  fill: var(--sparks-color, #FF0000);
   transition-delay: 0.05s;
 }
 
 .like-icon.is-liked .heart__core {
-  fill: var(--sparks-color);
+  fill: var(--sparks-color, #FF0000);
   transition-delay: 0.03s;
 }
 
 .like-icon.is-liked .heart__main-body {
-  fill: var(--sparks-color);
+  fill: var(--sparks-color, #FF0000);
   transition-delay: 0.05s;
 }
 
 .like-icon.is-liked .heart__contour {
-  fill: var(--sparks-color);
+  fill: var(--sparks-color, #FF0000);
   transition-delay: 0.06s;
 }
 
@@ -288,15 +290,15 @@ p {
 }
 
 .like-icon:not(.is-liked) .heart__contour {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
   transition: fill 0.1s linear;
 }
 
 .card__like-button {
   position: relative;
   display: flex;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--white, #fff);
+  border: 2px solid var(--black, #000);
   height: 39px;
   transition: box-shadow 0.3s ease;
   overflow: hidden;
@@ -308,9 +310,9 @@ p {
 .button__text {
   z-index: 2;
   mix-blend-mode: difference;
-  color: #fff;
-  font-family: var(--accent-font);
-  font-weight: var(--text-weight);
+  color: var(--white, #fff);
+  font-family: var(--accent-font, 'Press Start 2P'), sans-serif;
+  font-weight: var(--text-weight, 400);
   font-size: 14px;
   line-height: 0.9;
 }
@@ -324,26 +326,27 @@ p {
   gap: 8px;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
+  border: 2px solid var(--black, #000);
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--white, #fff);
 }
 
 .floppy-icon {
- color: #fff;
+ color: var(--white, #fff);
  mix-blend-mode: difference;
  z-index: 2;
 }
 
 .dialog:open {
   box-sizing: border-box;
-  border: 2px solid #000;
+  border: 2px solid var(--black, #000);
   display: grid;
   column-gap: 20px;
   row-gap: 30px;
   max-width: 353px;
-  width: var(--dialog-width);
-  padding: 30px;
+  width: var(--dialog-width, clamp(21.313rem, 21.048rem + 1.127vw, 22.063rem));
+  padding-block: 30px;
+  padding-inline: 30px;
   grid-template-columns: minmax(0, max-content) minmax(0, max-content);
   align-items: center;
 }
@@ -358,8 +361,8 @@ p {
 
 .dialog__text {
   grid-column: 2;
-  font-family: var(--accent-font);
-  font-weight: var(--text-weight);
+  font-family: var(--accent-font, 'Press Start 2P'), sans-serif;
+  font-weight: var(--text-weight, 400);
   font-size: 14px;
   line-height: 1.5;
   text-transform: uppercase;
@@ -375,19 +378,19 @@ p {
   position: relative;
   overflow: hidden;
   grid-column: 1 / 3;
-  border: 2px solid #000;
-  background-color: #fff;
-  font-family: var(--accent-font);
+  border: 2px solid var(--black, #000);
+  background-color: var(--white, #fff);
+  font-family: var(--accent-font, 'Press Start 2P'), sans-serif;
   font-size: 14px;
   line-height: 0.9;
-  font-weight: var(--text-weight);
+  font-weight: var(--text-weight, 400);
 }
 
 .card__like-button:focus-visible,
 .save-button:focus-visible,
 .dialog-button:focus-visible {
   outline: none;
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 var(--black, #000);
   transition: box-shadow 0.3s ease;
 }
 
@@ -395,7 +398,7 @@ p {
 .save-button::before,
 .dialog-button::before {
   content: '';
-  background-color: #000;
+  background-color: var(--black, #000);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
   position: absolute;
@@ -415,8 +418,10 @@ p {
   }
 
   .card__title {
-    padding: 4px 10px 6px;
-    /* по макету значение 1, но так получается менее пиксель пёрфект */
+    padding-block-start: 4px;
+    padding-inline: 10px;
+    padding-block-end: 6px;
+    /* по макету значение 1, но так получается менее pixel perfect */
     line-height: 1.2;
   }
 
