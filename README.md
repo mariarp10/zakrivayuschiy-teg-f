@@ -1,1 +1,1 @@
-https://github.com/mariarp10/zakrivayuschiy-teg-fgo
+https://github.com/mariarp10/zakrivayuschiy-teg-f
